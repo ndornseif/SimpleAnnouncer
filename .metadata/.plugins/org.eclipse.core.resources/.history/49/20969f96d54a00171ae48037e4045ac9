@@ -1,0 +1,66 @@
+package com.neal.simpleAnnouncer;
+
+import java.util.ArrayList;
+
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitTask;
+
+public class SimpleAnnouncer  extends JavaPlugin{
+	FileConfiguration config = getConfig();
+	
+	 @SuppressWarnings("serial")
+	 @Override
+	 public void onEnable() {
+		 //If the plugin is supposed to be active
+		 config.addDefault("active", true);
+		 
+		 //If the messages are send in a random order
+		 config.addDefault("random", false);
+		 
+		 config.addDefault("prefix", "[Announcement] ");
+		 
+		 //Interval for sending messages (in Seconds)
+		 config.addDefault("interval", 50);
+		 
+		 config.addDefault("announcements", new ArrayList<String>(){{
+		 add("&amessage1");
+		 add("&bmessage2");
+		 add("&cmessage3");
+		 }});
+		 
+		 config.options().copyDefaults(true);
+	     config.options().header("SimpleAnnouncer");
+		 saveConfig();
+
+		 getLogger().info("Plugin enabled");
+		 if(this.getConfig().getBoolean("active")){
+			 BukkitTask task = new AsyncAnnouncerTask(this).runTaskTimerAsynchronously(this, 200, (this.getConfig().getInt("interval")*20));
+		 }
+	 }
+	 
+	@Override
+	public void onDisable() {
+		getLogger().info("Plugin disabled");
+	}
+	 
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+		if (cmd.getName().equalsIgnoreCase("anc")) {
+			if(args.length>0){
+				if(args[0].equalsIgnoreCase("help")){
+					sender.sendMessage("SimpleAnnouncer Help");
+					sender.sendMessage("/anc help : Displays this help");
+					sender.sendMessage("/anc addmessage <message> : Adds a new message");
+					sender.sendMessage("SimpleAnnouncer Help");
+
+					
+				}
+			}		    
+		}    	     
+		return false; 
+	 }
+
+}

@@ -1,0 +1,9 @@
+name: SimpleAnnouncer
+main: com.neal.simpleAnnouncer.SimpleAnnouncer
+version: 1.0
+commands:
+   anc:
+      description: Used to interact with the SimpleAnnouncer Plugin
+      usage: /anc <args>
+      permission: SimpleChatFilter.reloadblacklist
+      permission-message: You dont have permissions to execute this command.

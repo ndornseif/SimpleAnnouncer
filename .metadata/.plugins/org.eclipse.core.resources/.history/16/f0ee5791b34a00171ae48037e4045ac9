@@ -1,0 +1,5 @@
+package com.neal.simpleAnnouncer;
+
+public class SimpleAnnouncer  extends JavaPlugin{
+
+}

@@ -1,0 +1,10 @@
+package com.neal.simpleAnnouncer;
+
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class SimpleAnnouncer  extends JavaPlugin{
+	FileConfiguration config = getConfig();
+
+
+}

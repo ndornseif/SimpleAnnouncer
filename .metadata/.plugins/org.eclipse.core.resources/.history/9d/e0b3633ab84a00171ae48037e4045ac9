@@ -1,0 +1,37 @@
+package com.neal.simpleAnnouncer;
+
+import java.util.ArrayList;
+
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class SimpleAnnouncer  extends JavaPlugin{
+	FileConfiguration config = getConfig();
+	
+	 @SuppressWarnings("serial")
+	 @Override
+	 public void onEnable() {
+		 //If the 
+		 config.addDefault("enabled", true);
+		 
+		 config.addDefault("random", true);
+		 
+		 config.addDefault("prefix", "[Announcement] ");
+		 
+		 config.addDefault("interval", 50);
+		 
+		 config.addDefault("announcements", new ArrayList<String>(){{
+		 add("message1");
+		 add("message2");
+		 add("message3");
+		 }});
+
+		 getLogger().info("Plugin enabled");
+	 }
+	 
+	 @Override
+	 public void onDisable() {
+		 getLogger().info("Plugin disabled");
+	 }
+
+}

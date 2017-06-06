@@ -1,0 +1,26 @@
+package com.neal.simpleAnnouncer;
+
+import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.java.JavaPlugin;
+
+public class SimpleAnnouncer  extends JavaPlugin{
+	FileConfiguration config = getConfig();
+	
+	 @Override
+	 public void onEnable() {
+		 config.addDefault("enabled", "true");
+		 
+		 config.addDefault("random", "true");
+		 
+		 config.addDefault("prefix", "true");
+
+		 getLogger().info("Plugin enabled");
+	 }
+	 
+	 @Override
+	 public void onDisable() {
+		 getLogger().info("Plugin disabled");
+	 }
+
+}

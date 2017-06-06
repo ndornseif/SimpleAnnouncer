@@ -1,0 +1,9 @@
+name: SimpleAnnouncer
+main: com.neal.simpleAnnouncer.SimpleAnnouncer
+version: 1.0
+commands:
+   anc:
+      description: Reloads the chatfilter blacklist
+      usage: /reloadchatblacklist
+      permission: SimpleChatFilter.reloadblacklist
+      permission-message: You dont have permissions to execute this command.

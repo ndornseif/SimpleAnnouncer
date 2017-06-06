@@ -1,0 +1,24 @@
+package com.neal.simpleAnnouncer;
+
+import org.bukkit.Bukkit;
+import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.scheduler.BukkitRunnable;
+
+public class AsyncAnnouncerTask extends BukkitRunnable {
+
+    private final JavaPlugin plugin;
+    private int messageCounter;
+    
+    public AsyncAnnouncerTask(JavaPlugin pPlugin) {
+        this.plugin = pPlugin;
+        
+    }
+
+    @Override
+    public void run() {
+    	if(!(messageCounter<((ArrayList<String>) plugin.getConfig().getStringList("announcements")).lenght()))
+        new AnnouncementTask(this.plugin, null).runTask(this.plugin);
+
+    }
+
+}

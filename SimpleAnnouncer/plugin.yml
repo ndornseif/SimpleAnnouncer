@@ -1,0 +1,3 @@
+name: SimpleAnnouncer
+main: com.neal.simpleAnnouncer.SimpleAnnouncer
+version: 1.0
